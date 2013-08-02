@@ -25,4 +25,34 @@
 
      <!--AppOps-->
      <string name="appops_settings_title">App privacy</string>
+
+    <!-- Generic strings -->
+    <string name="ok_string">Ok</string>
+    <string name="default_string">Default</string>
+    <string name="enabled_string">Enabled</string>
+    <string name="disabled_string">Disabled</string>
+
+    <!-- BUILD TWEAKS  -->
+    <!-- mv Settings  -->
+    <!-- Settings main menu category heading -->
+    <string name="header_category_interface">AOSP_MV</string>
+    <!-- System Interface settings  -->
+    <string name="system_settings_title">Dies und das</string>
+    <string name="system_interface_title">Dies und das</string>
+
+    <!-- Navigation Bar -->
+    <string name="navigation_bar_title">Navigation bar</string>
+
+    <!-- Navigation Bar Height -->
+    <string name="navigation_bar_height">Navigation bar height</string>
+    <string name="navigation_bar_height_48">48dp (default)</string>
+    <string name="navigation_bar_height_44">44dp</string>
+    <string name="navigation_bar_height_40">40dp</string>
+    <string name="navigation_bar_height_36">36dp</string>
+    <string name="navigation_bar_height_32">32dp</string>
+    <string name="navigation_bar_height_28">28dp</string>
+    <string name="navigation_bar_height_24">24dp</string>
+    <string name="navigation_bar_height_20">20dp</string>
+    <string name="navigation_bar_height_0">0dp (hide)</string>
+
 </resources>
