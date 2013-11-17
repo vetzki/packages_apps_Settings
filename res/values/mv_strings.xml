@@ -23,4 +23,6 @@
     <!-- Extra Interface settings  -->
     <string name="extra_settings_title">Sonstiges</string>
 
+     <!--AppOps-->
+     <string name="appops_settings_title">App privacy</string>
 </resources>
