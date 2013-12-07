@@ -18,6 +18,7 @@ package com.android.settings;
 
 import android.preference.PreferenceCategory;
 import android.view.WindowManagerGlobal;
+import android.preference.CheckBoxPreference;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.notification.DropDownPreference;
 import com.android.settings.notification.DropDownPreference.Callback;
@@ -42,7 +43,9 @@ import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
+import android.database.ContentObserver;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.preference.ListPreference;
@@ -54,6 +57,10 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.android.settings.DreamSettings;
+import com.android.settings.Utils;
+import com.android.settings.cyanogenmod.DisplayRotation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +83,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
     private WarnedListPreference mFontSizePref;
+    private static final String KEY_DISPLAY_ROTATION = "display_rotation";
+    private static final String KEY_ADVANCED_DISPLAY_SETTINGS = "advanced_display_settings";
+    private static final String CATEGORY_LIGHTS = "lights_prefs";
+    private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
+    private static final String KEY_BATTERY_LIGHT = "battery_light";
+
+    private PreferenceScreen mNotificationPulse;
+    private PreferenceScreen mBatteryPulse;
+    private PreferenceScreen mDisplayRotationPreference;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -96,6 +112,22 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mExpandedDesktopPref;
     private SwitchPreference mExpandedDesktopNoNavbarPref;
 
+    private ContentObserver mAccelerometerRotationObserver =
+            new ContentObserver(new Handler()) {
+        @Override
+        public void onChange(boolean selfChange) {
+            updateDisplayRotationPreferenceDescription();
+        }
+    };
+
+    private final RotationPolicy.RotationPolicyListener mRotationPolicyListener =
+            new RotationPolicy.RotationPolicyListener() {
+        @Override
+        public void onChange() {
+            updateDisplayRotationPreferenceDescription();
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +135,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = activity.getContentResolver();
 
         addPreferencesFromResource(R.xml.display_settings);
+
+        mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
 
         PreferenceCategory expandedCategory =
                 (PreferenceCategory) findPreference(CATEGORY_EXPANDED_DESKTOP);
@@ -153,6 +187,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mScreenTimeoutPreference.setOnPreferenceChangeListener(this);
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
+        updateDisplayRotationPreferenceDescription();
 
         mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
@@ -236,6 +271,54 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static boolean isAutomaticBrightnessAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_automatic_brightness_available);
+    }
+
+    private void updateDisplayRotationPreferenceDescription() {
+        if (mDisplayRotationPreference == null) {
+            // The preference was removed, do nothing
+            return;
+        }
+
+        // We have a preference, lets update the summary
+        boolean rotationEnabled = Settings.System.getInt(getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
+
+        if (!rotationEnabled) {
+            mDisplayRotationPreference.setSummary(R.string.display_rotation_disabled);
+            return;
+        }
+
+        StringBuilder summary = new StringBuilder();
+        int mode = Settings.System.getInt(getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION_ANGLES,
+                DisplayRotation.ROTATION_0_MODE
+                | DisplayRotation.ROTATION_90_MODE
+                | DisplayRotation.ROTATION_270_MODE);
+        ArrayList<String> rotationList = new ArrayList<String>();
+        String delim = "";
+
+        if ((mode & DisplayRotation.ROTATION_0_MODE) != 0) {
+            rotationList.add("0");
+        }
+        if ((mode & DisplayRotation.ROTATION_90_MODE) != 0) {
+            rotationList.add("90");
+        }
+        if ((mode & DisplayRotation.ROTATION_180_MODE) != 0) {
+            rotationList.add("180");
+        }
+        if ((mode & DisplayRotation.ROTATION_270_MODE) != 0) {
+            rotationList.add("270");
+        }
+        for (int i = 0; i < rotationList.size(); i++) {
+            summary.append(delim).append(rotationList.get(i));
+            if ((rotationList.size() - i) > 2) {
+                delim = ", ";
+            } else {
+                delim = " & ";
+            }
+        }
+        summary.append(" " + getString(R.string.display_rotation_unit));
+        mDisplayRotationPreference.setSummary(summary);
     }
 
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
@@ -339,7 +422,30 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        updateDisplayRotationPreferenceDescription();
+
+        RotationPolicy.registerRotationPolicyListener(getActivity(),
+                mRotationPolicyListener);
+
+        final ContentResolver resolver = getContentResolver();
+
+        // Display rotation observer
+        resolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
+                mAccelerometerRotationObserver);
+
         updateState();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        RotationPolicy.unregisterRotationPolicyListener(getActivity(),
+                mRotationPolicyListener);
+
+        // Display rotation observer
+        getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
     }
 
     @Override
