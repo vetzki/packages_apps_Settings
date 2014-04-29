@@ -554,11 +554,9 @@ public class AppOpsState {
                     return null;
                 }
             }
-            if((appInfo.flags & ApplicationInfo.FLAG_SYSTEM)==0) {
                 appEntry = new AppEntry(this, appInfo);
                 appEntry.loadLabel(context);
                 appEntries.put(packageName, appEntry);
-            }
         }
         return appEntry;
     }
