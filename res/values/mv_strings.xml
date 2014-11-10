@@ -32,14 +32,6 @@
     <string name="enabled_string">Enabled</string>
     <string name="disabled_string">Disabled</string>
 
-    <!-- BUILD TWEAKS  -->
-    <!-- mv Settings  -->
-    <!-- Settings main menu category heading -->
-    <string name="header_category_interface">AOSP_MV</string>
-    <!-- System Interface settings  -->
-    <string name="system_settings_title">Dies und das</string>
-    <string name="system_interface_title">Dies und das</string>
-
     <!-- Navigation Bar -->
     <string name="navigation_bar_title">Navigation bar</string>
 
