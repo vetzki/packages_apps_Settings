@@ -312,11 +312,5 @@
             android:summary="@string/show_all_anrs_summary"/>
 
      </PreferenceCategory>
-     
-     <!-- Superuser -->
-    <Preference
-        android:id="@+id/superuser"
-        android:fragment="com.koushikdutta.superuser.PolicyNativeFragment"
-        android:title="@string/superuser" />
 
 </PreferenceScreen>
