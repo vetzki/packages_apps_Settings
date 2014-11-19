@@ -17,12 +17,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="general_string">General</string>
-
-    <!-- Extra Settings  -->
-    <!-- Extra Interface settings  -->
-    <string name="extra_settings_title">Sonstiges</string>
-
      <!--AppOps-->
      <string name="appops_settings_title">App privacy</string>
 

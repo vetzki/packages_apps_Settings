@@ -193,15 +193,7 @@
                 android:fragment="com.android.settings.PrivacySettings"
                 android:icon="@drawable/ic_settings_backup"
                 />
-	
-	<!-- Extra Settings -->
-	<dashboard-tile
-		android:id="@+id/extra_settings"
-		android:title="@string/extra_settings_title"
-	        android:fragment="com.android.settings.mv.ExtraSettings"
-		android:icon="@drawable/ic_settings_extra"
-		/>
-	
+
 	<!-- AppOpps -->
 	<dashboard-tile
 		android:title="@string/appops_settings_title"
