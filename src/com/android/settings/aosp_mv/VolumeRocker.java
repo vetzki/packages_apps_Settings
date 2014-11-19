@@ -6,6 +6,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 //import android.view.VolumePanel;
 
@@ -17,7 +18,14 @@ public class VolumeRocker extends SettingsPreferenceFragment implements OnPrefer
     // volume cursor control
     private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
+    // volume rocker wake
+    private static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
+    // volume cursor control
     private ListPreference mVolumeKeyCursorControl;
+    
+    // volume rocker wake
+    private SwitchPreference mVolumeRockerWake;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,13 @@ public class VolumeRocker extends SettingsPreferenceFragment implements OnPrefer
                     .getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
             mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
         }
+
+        // volume rocker wake
+        mVolumeRockerWake = (SwitchPreference) findPreference(VOLUME_ROCKER_WAKE);
+        mVolumeRockerWake.setOnPreferenceChangeListener(this);
+        int volumeRockerWake = Settings.System.getInt(getContentResolver(),
+                VOLUME_ROCKER_WAKE, 0);
+        mVolumeRockerWake.setChecked(volumeRockerWake != 0);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -45,6 +60,13 @@ public class VolumeRocker extends SettingsPreferenceFragment implements OnPrefer
             mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntries()[index]);
             return true;
         }
-        return true;
+        // volume rocker wake
+        else if (preference == mVolumeRockerWake) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(), VOLUME_ROCKER_WAKE,
+                    value ? 1 : 0);
+            return true;
+        }
+        return false;
     }
 }

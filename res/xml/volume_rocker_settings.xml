@@ -28,6 +28,11 @@
             android:entries="@array/volbtn_cursor_control_entries"
             android:entryValues="@array/volbtn_cursor_control_values"
             android:persistent="false" />
+	
+	<SwitchPreference
+	    android:key="volume_rocker_wake"
+	    android:summary="@string/volume_rocker_wake_summary"
+	    android:title="@string/volume_rocker_wake_title" />
 
     </PreferenceCategory>
 
