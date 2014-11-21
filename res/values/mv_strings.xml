@@ -57,4 +57,9 @@
     <string name="navigation_bar_height_14">14dp</string>
     <string name="navigation_bar_height_0">0dp (hide)</string>
 
+    <!-- Status bar -->
+    <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_toggle_brightness">Brightness control</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
+
 </resources>
