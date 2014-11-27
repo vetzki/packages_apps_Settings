@@ -25,12 +25,6 @@
    <PreferenceScreen
 	android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
         android:title="@string/status_bar_title" />
-   
-   <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="double_tap_sleep_gesture"
-        android:title="@string/double_tap_to_sleep_title"
-        android:summary="@string/double_tap_to_sleep_summary"
-        android:defaultValue="true" />
 
   <PreferenceScreen
 	android:key="volume_rocker_settings"
