@@ -313,10 +313,4 @@
 
      </PreferenceCategory>
 
-     <!-- Superuser -->
-    <PreferenceScreen
-        android:id="@+id/superuser"
-        android:fragment="com.koushikdutta.superuser.PolicyNativeFragment"
-        android:title="@string/superuser" />
-
 </PreferenceScreen>
