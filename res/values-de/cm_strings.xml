@@ -34,7 +34,6 @@
     <string name="edit_light_settings">LED Optionen konfigurieren</string>
     <string name="pulse_speed_title">Länge und Geschwindigkeit</string>
     <string name="default_time">Normal</string>
-    <string name="custom_time">Benutzerdef.</string>
     <string name="dialog_delete_title">Löschen</string>
     <string name="dialog_delete_message">Ausgewähltes Objekt entfernen?</string>
 
