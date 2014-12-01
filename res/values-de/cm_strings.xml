@@ -24,6 +24,9 @@
     <string name="status_bar_quick_qs_pulldown_title">Schnellzugriff Schnelleinstellungen</string>
     <string name="status_bar_quick_qs_pulldown_summary">Rechter Rand der Status bar öffnet die Schnelleinstellungen</string>
 
+    <string name="status_bar_show_weather_title">Wetter anzeigen</string>
+    <string name="status_bar_show_weather_summary">Zeige Wetterinformationen in der Status bar</string>
+
     <!-- Profile Strings for Noti Light -->
     <string name="profiles_add">Hinzufügen</string>
     <string name="profile_menu_delete">Löschen</string>
