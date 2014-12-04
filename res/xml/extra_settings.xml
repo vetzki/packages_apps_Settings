@@ -31,4 +31,13 @@
 	android:fragment="com.android.settings.mv.VolumeRocker"
         android:title="@string/hardware_keys_volume_keys_title" />
 
+  <PreferenceScreen
+	android:key="lock_clock"
+	android:title="@string/lock_clock_title"
+	android:summary="@string/lock_clock_summary">
+	<intent android:action="android.intent.action.MAIN"
+		android:targetPackage="com.cyanogenmod.lockclock"
+		android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+</PreferenceScreen>
+
 </PreferenceScreen>
