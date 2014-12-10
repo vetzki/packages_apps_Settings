@@ -60,7 +60,7 @@
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_toggle_brightness">Helligkeitssteuerung</string>
-    <string name="status_bar_toggle_brightness_summary">Statusbar: Feld für Helligkeitssteuerung</string>
+    <string name="status_bar_toggle_brightness_summary">Mit wischen über die Statusbar Helligkeit regeln</string>
 
         <!-- Volume rocker wake -->
     <string name="volume_rocker_wake_title">Aufwachen durch die Lautstärketasten</string>
