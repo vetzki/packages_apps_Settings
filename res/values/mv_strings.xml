@@ -71,7 +71,6 @@
     <string name="volume_key_adjust_sound_summary">Play sound when adjusting volume with volume keys</string>
 
     <!-- CM Lock Clock -->
-    <string name="lock_clock_title">cLock</string>
-    <string name="lock_clock_summary">Configure cLock Settings</string>
+    <string name="lock_clock_title">cLock configuration</string>
 
 </resources>

@@ -71,7 +71,6 @@
     <string name="volume_key_adjust_sound_summary">Ton abspielen wenn eine der Lautstärketasten gedrückt wird</string>
 
     <!-- CM Lock Clock -->
-    <string name="lock_clock_title">cLock</string>
-    <string name="lock_clock_summary">cLock konfigurieren</string>
+    <string name="lock_clock_title">cLock Einstellungen</string>
 
 </resources>
