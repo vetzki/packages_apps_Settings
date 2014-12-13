@@ -112,13 +112,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mExpandedDesktopPref;
     private SwitchPreference mExpandedDesktopNoNavbarPref;
 
-    private ContentObserver mAccelerometerRotationObserver =
+/*    private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
             updateDisplayRotationPreferenceDescription();
         }
-    };
+    };*/
 
     private final RotationPolicy.RotationPolicyListener mRotationPolicyListener =
             new RotationPolicy.RotationPolicyListener() {
@@ -430,9 +430,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = getContentResolver();
 
         // Display rotation observer
-        resolver.registerContentObserver(
-                Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
-                mAccelerometerRotationObserver);
+//        resolver.registerContentObserver(
+//                Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true);
+//                mAccelerometerRotationObserver);
 
         updateState();
     }
@@ -445,7 +445,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 mRotationPolicyListener);
 
         // Display rotation observer
-        getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
+//        getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
     }
 
     @Override

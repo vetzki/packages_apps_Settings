@@ -32,14 +32,14 @@ import com.android.settings.SettingsPreferenceFragment;
 public class DisplayRotation extends SettingsPreferenceFragment {
     private static final String TAG = "DisplayRotation";
 
-    private static final String KEY_ACCELEROMETER = "accelerometer";
-    private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
+//    private static final String KEY_ACCELEROMETER = "accelerometer";
+//    private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
     private static final String ROTATION_0_PREF = "display_rotation_0";
     private static final String ROTATION_90_PREF = "display_rotation_90";
     private static final String ROTATION_180_PREF = "display_rotation_180";
     private static final String ROTATION_270_PREF = "display_rotation_270";
 
-    private SwitchPreference mAccelerometer;
+//    private SwitchPreference mAccelerometer;
     private SwitchPreference mRotation0Pref;
     private SwitchPreference mRotation90Pref;
     private SwitchPreference mRotation180Pref;
@@ -50,12 +50,12 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     public static final int ROTATION_180_MODE = 4;
     public static final int ROTATION_270_MODE = 8;
 
-    private ContentObserver mAccelerometerRotationObserver = new ContentObserver(new Handler()) {
+/*    private ContentObserver mAccelerometerRotationObserver = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
             updateAccelerometerRotationSwitch();
         }
-    };
+    };*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,8 +65,8 @@ public class DisplayRotation extends SettingsPreferenceFragment {
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mAccelerometer = (SwitchPreference) findPreference(KEY_ACCELEROMETER);
-        mAccelerometer.setPersistent(false);
+//        mAccelerometer = (SwitchPreference) findPreference(KEY_ACCELEROMETER);
+//        mAccelerometer.setPersistent(false);
 
         mRotation0Pref = (SwitchPreference) prefSet.findPreference(ROTATION_0_PREF);
         mRotation90Pref = (SwitchPreference) prefSet.findPreference(ROTATION_90_PREF);
@@ -88,47 +88,47 @@ public class DisplayRotation extends SettingsPreferenceFragment {
 
         if (hasRotationLock) {
             // Disable accelerometer switch, but leave others enabled
-            mAccelerometer.setEnabled(false);
+//            mAccelerometer.setEnabled(false);
             mRotation0Pref.setDependency(null);
             mRotation90Pref.setDependency(null);
             mRotation180Pref.setDependency(null);
             mRotation270Pref.setDependency(null);
         }
 
-        final SwitchPreference lockScreenRotation =
+/*        final SwitchPreference lockScreenRotation =
                 (SwitchPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
         boolean canRotateLockscreen = getResources().getBoolean(
                 com.android.internal.R.bool.config_enableLockScreenRotation);
 
         if (lockScreenRotation != null && !canRotateLockscreen) {
             getPreferenceScreen().removePreference(lockScreenRotation);
-        }
+        }*/
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        updateState();
+/*        updateState();
         getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
-                mAccelerometerRotationObserver);
+                mAccelerometerRotationObserver);*/
     }
 
     @Override
     public void onPause() {
         super.onPause();
 
-        getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
+//        getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
     }
 
-    private void updateState() {
+/*    private void updateState() {
         updateAccelerometerRotationSwitch();
     }
 
     private void updateAccelerometerRotationSwitch() {
         mAccelerometer.setChecked(!RotationPolicy.isRotationLocked(getActivity()));
-    }
+    }*/
 
     private int getRotationBitmask() {
         int mode = 0;
@@ -150,10 +150,10 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
             Preference preference) {
-        if (preference == mAccelerometer) {
+        /*if (preference == mAccelerometer) {
             RotationPolicy.setRotationLockForAccessibility(getActivity(),
                     !mAccelerometer.isChecked());
-        } else if (preference == mRotation0Pref ||
+        } else */if (preference == mRotation0Pref ||
                 preference == mRotation90Pref ||
                 preference == mRotation180Pref ||
                 preference == mRotation270Pref) {
