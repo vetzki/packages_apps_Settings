@@ -27,6 +27,17 @@
     <string name="status_bar_show_weather_title">Wetter anzeigen</string>
     <string name="status_bar_show_weather_summary">Zeige Wetterinformationen in der Status bar</string>
 
+    <!-- Display : Rotation  -->
+    <string name="display_rotation_title">Rotation</string>
+    <string name="display_rotation_disabled">Deaktiviert</string>
+    <string name="display_rotation_unit">Grad</string>
+    <string name="display_lockscreen_rotation_title">Rotate lock screen</string>
+    <string name="display_rotation_category_title">Rotation Modi</string>
+    <string name="display_rotation_0_title">0 Grad</string>
+    <string name="display_rotation_90_title">90 Grad</string>
+    <string name="display_rotation_180_title">180 Grad</string>
+    <string name="display_rotation_270_title">270 Grad</string>
+
     <!-- Profile Strings for Noti Light -->
     <string name="profiles_add">Hinzufügen</string>
     <string name="profile_menu_delete">Löschen</string>
@@ -80,5 +91,10 @@
     <string name="volbtn_cursor_control_off">Aus</string>
     <string name="volume_key_cursor_control_on">Lautstärketasten bewegen cursor links/rechts</string>
     <string name="volume_key_cursor_control_on_reverse">Lautstärketasten bewegen cursor rechts/links</string>
+    <string name="volbtn_music_controls_title">Playback control</string>
+    <string name="volbtn_music_controls_summary">Langes drücken der Lautstärketasten wechselt den Musiktitel, wenn der Bildschirm aus ist</string>
+
+    <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
+    <string name="status_bar_notif_count_summary">Anzahl der unerledigten Benachrichtigungen anzeigen (z.b. Emails) </string>
 
 </resources>
