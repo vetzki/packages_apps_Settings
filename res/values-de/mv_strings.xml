@@ -73,4 +73,8 @@
     <!-- CM Lock Clock -->
     <string name="lock_clock_title">cLock Einstellungen</string>
 
+    <!-- Show/Hide Search Bar -->
+    <string name="recents_show_searchbar">Suchleiste in den zuletzt genutzen Apps deaktivieren</string>
+    <string name="recents_show_searchbar_summary">Deaktiviert/Aktiviert die Suchleiste in der Ansicht in welcher die zuletzt genutzten Apps gezeigt werden</string>
+    <string name="keywords_recents_show_searchbar">Zuletzt genutzt genutzte deaktivieren Suchleiste verstecken versteck</string>
 </resources>
