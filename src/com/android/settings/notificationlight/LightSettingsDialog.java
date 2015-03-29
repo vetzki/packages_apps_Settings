@@ -336,7 +336,7 @@ public class LightSettingsDialog extends AlertDialog implements
             // Check if we also need to add the custom value entry
             if (getTimePosition(customTime) == -1) {
                 times.add(new Pair<String, Integer>(getContext().getResources()
-                        .getString(R.string.custom_time), customTime));
+                        .getString(R.string.default_time), customTime));
             }
         }
 

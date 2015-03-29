@@ -272,7 +272,7 @@ public class ApplicationLightPreference extends DialogPreference {
             }
         }
 
-        return getContext().getString(R.string.custom_time);
+        return getContext().getString(R.string.default_time);
     }
 
     private String mapSpeedValue(Integer time) {
@@ -289,6 +289,6 @@ public class ApplicationLightPreference extends DialogPreference {
             }
         }
 
-        return getContext().getString(R.string.custom_time);
+        return getContext().getString(R.string.default_time);
     }
 }
