@@ -103,10 +103,11 @@
         <com.android.settings.DropDownPreference
                 android:key="auto_rotate"
                 android:title="@string/display_auto_rotate_title" />
-        
-        <ListPreference
+
+        <EditTextPreference
                 android:key="lcd_density"
                 android:title="@string/lcd_density"
+                android:inputType="number"
                 android:persistent="false" />
 
         <PreferenceScreen
