@@ -88,9 +88,10 @@
             android:fragment="com.android.settings.cyanogenmod.DisplayRotation"
             android:title="@string/display_rotation_title" />
         
-        <ListPreference
+        <EditTextPreference
                 android:key="lcd_density"
                 android:title="@string/lcd_density"
+                android:inputType="number"
                 android:persistent="false" />
 
         <PreferenceScreen
