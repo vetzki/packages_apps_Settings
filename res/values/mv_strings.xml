@@ -24,7 +24,7 @@
     <string name="extra_settings_title">Sonstiges</string>
 
      <!--AppOps-->
-     <string name="appops_settings_title">App privacy</string>
+     <string name="appops_settings_title">AppOps</string>
 
     <!-- Generic strings -->
     <string name="ok_string">Ok</string>
