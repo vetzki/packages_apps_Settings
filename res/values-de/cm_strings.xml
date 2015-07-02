@@ -89,8 +89,8 @@
     <string name="hardware_keys_volume_keys_title">Lautstärketasten</string>
     <string name="volbtn_cursor_control_title">Keyboard cursor control</string>
     <string name="volbtn_cursor_control_off">Aus</string>
-    <string name="volume_key_cursor_control_on">Lautstärketasten bewegen cursor links/rechts</string>
-    <string name="volume_key_cursor_control_on_reverse">Lautstärketasten bewegen cursor rechts/links</string>
+    <string name="volbtn_cursor_control_on">Lautstärketasten bewegen cursor links/rechts</string>
+    <string name="volbtn_cursor_control_on_reverse">Lautstärketasten bewegen cursor rechts/links</string>
     <string name="volbtn_music_controls_title">Playback control</string>
     <string name="volbtn_music_controls_summary">Langes drücken der Lautstärketasten wechselt den Musiktitel, wenn der Bildschirm aus ist</string>
 
