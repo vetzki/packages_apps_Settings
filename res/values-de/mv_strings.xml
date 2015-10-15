@@ -20,10 +20,10 @@
     <string name="navigation_bar_title">Navigationbar</string>
 
     <!-- Navigation Bar Height -->
-    <string name="navigation_bar_height">Navigationbar height</string>
+    <string name="navigation_bar_height">Navigationbar Höhe</string>
     <string name="navigation_bar_height_52">52dp</string>
     <string name="navigation_bar_height_50">50dp</string>
-    <string name="navigation_bar_height_48">48dp (default)</string>
+    <string name="navigation_bar_height_48">48dp (Standard)</string>
     <string name="navigation_bar_height_46">46dp</string>
     <string name="navigation_bar_height_44">44dp</string>
     <string name="navigation_bar_height_42">42dp</string>
@@ -38,6 +38,6 @@
     <string name="navigation_bar_height_24">24dp</string>
     <string name="navigation_bar_height_22">22dp</string>
     <string name="navigation_bar_height_20">20dp</string>
-    <string name="navigation_bar_height_0">0dp (hide)</string>
+    <string name="navigation_bar_height_0">0dp (versteckt)</string>
 
 </resources>
