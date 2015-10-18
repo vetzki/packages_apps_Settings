@@ -115,6 +115,11 @@
                 android:inputType="number"
                 android:persistent="false" />
 
+        <com.android.settings.chroma.SystemSettingSwitchPreference
+                android:key="double_tap_sleep_gesture"
+                android:title="@string/double_tap_to_sleep_title"
+                android:summary="@string/double_tap_to_sleep_summary" />
+
         <PreferenceScreen
                 android:key="wifi_display"
                 android:title="@string/wifi_display_settings_title"
