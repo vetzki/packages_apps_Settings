@@ -97,7 +97,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
-    private static final String SCROLLINGCACHE_DEFAULT = "2";
+    private static final String SCROLLINGCACHE_DEFAULT = "1";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
